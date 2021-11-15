@@ -1,0 +1,134 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content%}
+
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h3 style="color: white;">Hello, {{user}}</h3>
+        <ul>
+            <li><a href="{% url 'home' %}" class="menu"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="{% url 'create_company' customer.id%}" class="menu"><i class="fas fa-user"></i>Add Company</a></li>
+
+            <li><a href="{% url 'logout' %}" class="menu"><i class="fas fa-address-card"></i>Logout</a></li>
+            <!-- <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
+            <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
+            <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
+            <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li> -->
+        </ul> 
+        <div class="social_media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      
+
+    </div>
+    <div class="main_content  pl-5">
+        <br>
+        {% for message in messages %}
+      <div  class="alert alert-success">
+          {{message}}
+
+      </div>
+      {%endfor%}
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    
+    <br>
+    <div class=" mt-3  fieldWrapper">
+        
+        <label for="{{ form.company_name.id_for_label }}">Client Website Address:</label>
+        {{ form.client_website_address }}
+        {{ form.client_website_address.errors }}
+    </div>
+    <br>
+  
+    <!-- <div class="h-100"> -->
+    <!-- <input type="submit"  name = submit> -->
+
+    
+    <!-- </div> -->
+
+
+<!-- Button trigger modal -->
+
+
+<button type="submit" style="margin-left: 25%;" class="btn btn-dark" name="submit">Submit</button>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Your Referal link</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <!-- <p>hello</p> -->
+            <p>hello</p>
+            {% for message in messages %}
+            <p> hello
+          {{message}}
+            </p>
+          {%endfor%}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- <div>
+        
+    </div> -->
+</form>
+<br>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Client Website</th>
+          <th>Added on</th>
+          <th>Actions</th>
+
+                   
+				</tr>
+
+				{% for order in orders %}
+
+				<tr>
+					<td>{{order.client_website_address}}</td>
+				
+					<td>{{order.Added_on}}</td>
+          <td>
+            {% if customer.is_token_valid %}
+            <!-- <input  type="text" id="myInput" value={{active_link}}>            -->
+            
+            <a type="button" href="{% url 'copy_link' customer.code %}" class="btn btn-link">Copy Referal Link</a></td>
+            {%else%}
+            <a class="btn btn-dark " href="{% url 'generate_link2' customer.id %}">Generate Link</a>
+            {%endif%}
+
+					
+                   
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

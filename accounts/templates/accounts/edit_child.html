@@ -1,0 +1,233 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content%}
+
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<style>
+    body,
+html {
+margin: 0;
+padding: 0;
+height: 100%;
+overflow: hidden;
+background: linear-gradient(to top, #5d4157, #a8caba);
+}
+.body{
+    background: linear-gradient(to top, #5d4157, #a8caba);
+}
+
+form {
+    background-color: rgb(255, 255, 255);
+    margin-top: 30%;
+    height: 35%;
+    width: 60%;
+    right: 12%;
+    position: absolute;
+    align-items: right;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+.main_content{
+    background: linear-gradient(to top, #5d4157, #a8caba);
+}
+.wrapper .main_content{
+    background-color: rgba(254, 255, 255, 0);
+    height: 80rem;
+    margin-top: -20rem;
+    margin-left: 5rem;
+    
+    
+}
+.main_content{
+    margin-left: 4rem;
+    text-align: left;
+    align-items: left;
+}
+img{
+    height: 10rem ;
+}
+.btn01:hover{
+    background-color: rgb(222, 204, 238);
+    border: blueviolet;
+}
+label{
+    text-align: left;
+    margin-left: 2rem;
+    font-size: 17px;
+    color: rgb(22, 22, 21);
+}
+input {
+    width: 30%;
+    position: relative;
+    margin-right: 37.5rem;
+    margin-top: -0.5rem;
+    border: none;
+    border-radius: 8px;
+    border:1px solid rgba(0, 0, 0, 0.801);
+    background-color: rgb(216, 193, 235);
+     
+}
+.btn01{
+    width: 25%;
+    height: 2rem;
+    position: absolute;
+    margin-right:1rem ;
+    border: none;
+    top: 80%;
+    left: 5%;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 8px;}
+
+    .wrapper .sidebar1 {
+    width: 200px;
+    height: 100%;
+    background: blueviolet;
+    padding: 30px 0px;
+    position: fixed;
+	margin-left: -1rem;
+}
+.child{
+    height: 20rem;
+    z-index: 1000;
+    position: absolute;
+    top: 2%;
+    right: 6%;
+
+}
+.wrapper .sidebar1 ul li:hover
+{
+	background: rgba(184, 128, 236, 0.884); 
+	border: 1px white solid;
+	text-decoration: none;
+	list-style: none;
+}
+.wrapper .sidebar .social_media a{
+  display: block;
+  width: 40px;
+  background: blueviolet;
+  height: 40px;
+  line-height: 45px;
+  text-align: center;
+  margin: 0 5px;
+  color: #bdb8d7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 1.5rem;
+}
+.name01{
+	margin-left: 1rem;
+    font-size: 1.2rem;
+}
+.name01 span{
+	margin-left: 1.5rem;
+	text-transform: capitalize;
+    font-size: 1.7rem;}
+
+.gen,.date{
+    margin-top: 1.5rem;
+}
+</style>
+
+<div class="wrapper">
+    
+    <div class="sidebar sidebar1">
+        <h3 class="name01" style="color: white;">Hello, <br> <span>{{user}}</span> </h3>
+        <ul>
+            <li><a href="{% url 'home' %}" class="menu"><i class="fas fa-home"></i>Dashboard</a></li>
+
+            <li><a href="{% url 'logout' %}" class="menu"><i class="fas fa-address-card"></i>Logout</a></li>
+            <!-- <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
+            <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
+            <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
+            <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li> -->
+        </ul> 
+        <div class="social_media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="main_content   pl-5">
+   <form  class =" justify-content-center" action="" method="POST">
+    {% csrf_token %}
+    <br>
+<div class="Card01">
+    <div class=" mt-3  fieldWrapper">
+        
+        <label for="{{ form.company_name.id_for_label }}">Child Name:</label>
+        {{ form.child_name }}
+        {{ form.child_name.errors }}
+    </div>
+    <br>
+    <!-- <div class="fieldWrapper">
+       
+        <label for="{{ form.address.id_for_label }}">Company Address:</label>
+        {{ form.address }}
+        {{ form.address.errors }}
+    </div>
+    <br> -->
+    <div class="fieldWrapper">
+       
+        <label class="date" for="{{ form.date_of_birth.id_for_label }}">Date of Birth:</label>
+        {{ form.date_of_birth }}
+        {{ form.date_of_birth.errors }}
+    </div>
+    <br>
+   
+    <div class="fieldWrapper">
+        
+        <label class="gen" for="{{ form.mobile_number.id_for_label }}">Child Gender:</label>
+        {{ form.child_gender }}
+        {{ form.child_gender.errors }}
+        
+ 
+    </div>
+    <br> 
+    <button type="submit"  class="btn01 " name="submit">Submit</button> 
+    
+    
+    <!-- <div class="fieldWrapper">
+        
+        <label for="{{ form.website_address.id_for_label }}">Website Address:</label>
+        {{ form.website_address }}
+        {{ form.website_address.errors }}
+    </div> -->
+    
+    
+    <!-- <div class="fieldWrapper">
+        
+        <label for="{{ form.state.id_for_label }}">State:  </label>
+        {{ form.state }}
+        {{ form.state.errors }}
+    </div>
+    <br> -->
+    <!-- <div class="fieldWrapper">
+        
+        <label for="{{ form.country.id_for_label }}">Country:</label>
+        {{ form.country }}
+		
+        {{ form.country.errors }}
+        <!-- <h1></h1>
+        <h1></h1>
+        <h1></h1> -->
+    <!-- </div> -->
+    <!-- <br> -->
+    </div> 
+    <img class="child" src="https://i.ibb.co/xjtWk1Q/telerehab-Video-670x455-removebg-preview.png" alt="telerehab-Video-670x455-removebg-preview" border="0"></a>
+ </div>
+ 
+</div>
+</div>
+<div class="bg">
+
+</div>
+
+
+{% endblock %}

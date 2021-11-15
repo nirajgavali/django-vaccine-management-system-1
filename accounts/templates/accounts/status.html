@@ -1,0 +1,103 @@
+<br>
+<style>
+#total-orders ,#orders-delivered ,#orders-pending  {
+    background-color: transparent;
+}
+.card-header1,.card-header2,.card-header3{
+	height: 7.8rem;
+}
+.card-body02{
+		font-family: "Josefin Sans" ;
+  font-size: 100%;
+  font-weight: 300;
+  line-height: 1.5;
+		background:  #f8f5f5;
+		color :black;
+	}
+.card{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}	
+	.card-header{
+		background-color: blueviolet;
+}
+.card-title{
+	text-align: left;
+	font-size: 1.6rem;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+}
+.card-title1{
+	text-align: left;
+	font-size: 1.35rem;
+	color: rgb(255, 255, 255);
+	font-weight: 500;
+}
+.card-header1{
+	background: linear-gradient(to left, #fdc830, #f37335);
+	border: none;
+}
+.card-header2{
+	background: linear-gradient(to right, #11998e, #38ef7d);
+}
+.card-header3{
+	background: linear-gradient(to left, #f797cc, #bb377d);
+}
+.kicon{
+	height: 100%;
+	width:40px;
+}
+.kicon img{
+	height: 40px;
+	width: auto;
+}
+img{
+	height: 80px;
+	width: auto;
+	transform: translate(140%,-80%);
+}
+</style>
+
+<div class="row">
+	<div class="col">
+		<div class="col-md card001 ">
+			<div class="card card01 card26 card001 text-center text-white  mb-3" id="total-orders">
+			  	<div class="card-header card-header1">
+			  		<div><h5 class="card-title">Child Name</h5> 
+			    	<h3 class="card-title card-title1 ">{{grand_next_child}}</h3>
+					<a href="https://imgbb.com/"><img src="https://i.ibb.co/mzppsLx/111-1114679-person-png-icon-person-white-symbol-png-transparent-removebg-preview.png" alt="111-1114679-person-png-icon-person-white-symbol-png-transparent-removebg-preview" border="0"></a></div>
+			  	</div>
+				 
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md card002">
+			<div class="card card01 text-center text-white  mb-3" id="orders-delivered">
+			  	<div class="card-header card-header2">
+			  		<h5 class="card-title">Next Vaccine</h5>
+			    	<h3 class="card-title card-title1">{{grand_next_vaccine}}</h3>
+					<a href="https://ibb.co/vVfYWxf"><img src="https://i.ibb.co/GnGTDvG/transparent-health-checkup-icon-vaccine-icon-5deb7e58988ce4-8244990415757143926249-1.png" alt="transparent-health-checkup-icon-vaccine-icon-5deb7e58988ce4-8244990415757143926249-1" border="0"></a>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md card003">
+			<div class="card card01 text-center text-white  mb-3" id="orders-pending" style="background-color: #7CD1C0;">
+			  	<div class="card-header card-header3">
+			  		<h5 class="card-title">Date</h5>
+			    	<h3 class="card-title card-title1">{{grand_next_vaccine_date}}</h3>
+					<a href="https://imgbb.com/"><img src="https://i.ibb.co/r57c3xs/pngkey-com-white-calendar-icon-png-2753911-removebg-preview.png" alt="pngkey-com-white-calendar-icon-png-2753911-removebg-preview" border="0"></a>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+

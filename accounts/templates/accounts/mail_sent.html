@@ -1,0 +1,12 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+<div class="text-center">
+    <h2> Mail Sent! </h2>
+    {%for child in email_sent_list%}
+    <h5>Mail was sent to {{child.child_name}}</h5>
+    {%endfor%}
+</div>
+
+{% endblock %}
